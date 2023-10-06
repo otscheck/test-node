@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css"
+        integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>STUDENT</title>
+</head>
+
+<body>
+    <table class="table">
+        <tr>
+            <td></td>
+            <th>ID étudiants</th>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Email validé</th>
+        </tr>
+        <tbody>
+            <% for(var i=0; i<test.length; i++) {%>
+                <tr>
+                    <td>
+                        <form action="/DeleteStudent/<%= test[i].student_id  %>" method="post">
+                            <input type="submit" name="supprimer" value="Supprimer">
+                        </form>
+                    </td>
+                    <td>
+                        <%= test[i].student_id %>
+                    </td>
+                    <td>
+                        <%= test[i].first_name %>
+                    </td>
+                    <td>
+                        <%= test[i].last_name %>
+                    </td>
+                    <td>
+                        <%= test[i].email %>
+                    </td>
+                    <!-- <td>
+                        <form action="/MarkEmail/<%= test[i].student_id %>" method="post">
+                            <% if(test[i].email=='N' ) {%>
+                                <input type="submit" name="Set Email to Y" value="Set Email to Y">
+                                <% } else { %>
+                                    <input type="submit" name="Set Email to N" value="Set Email to N">
+                                    <% } %>
+                        </form>
+                    </td> -->
+                </tr>
+                <% } %>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
